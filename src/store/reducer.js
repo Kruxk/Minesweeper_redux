@@ -1,6 +1,6 @@
 import { NEW_GAME } from "./actions";
 
-const initialState = [null];
+const initialState = [[]];
 
 export default (state = initialState, { type, payload }) => {
   switch (type) {

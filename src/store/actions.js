@@ -97,8 +97,7 @@ export const NEW_GAME = "NEW_GAME";
 
 export const newGame = (dimension) => {
   const numOfMines = Math.floor(dimension * dimension * 0.25);
-  const board = plantMines(initBoard(dimension), numOfMines);
+  const board = getNeighbours(plantMines(initBoard(dimension), numOfMines));
 
-  console.log(getNeighbours(board));
   return { type: NEW_GAME, payload: board };
 };
