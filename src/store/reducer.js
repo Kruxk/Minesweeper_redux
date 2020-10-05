@@ -1,18 +1,13 @@
-import { NEW_GAME, LEFT_CLICK, revealEmpty, RIGHT_CLICK } from "./actions";
-
-const revealAll = (board) => {
-  return board.reduce((board, row) => {
-    row.map((cell) => (cell.isRevealed = true));
-    return [...board, row];
-  }, []);
-};
+import { NEW_GAME, LEFT_CLICK, RIGHT_CLICK } from "./actions";
+import { initGame, revealAll, revealEmpty } from "./helpers";
 
 const initialState = [[]];
 
 export default (state = initialState, { type, payload }) => {
   switch (type) {
     case NEW_GAME:
-      return [...payload];
+      const newBoard = initGame(payload);
+      return [...newBoard];
     case LEFT_CLICK:
       state[payload.x][payload.y].isRevealed = true;
       const numOfMines = state.reduce((total, row) => {
@@ -21,7 +16,7 @@ export default (state = initialState, { type, payload }) => {
       }, 0);
       //check for game over
       if (state[payload.x][payload.y].isMine) {
-        return [...revealAll(state.board)];
+        return [...revealAll(state)];
       }
 
       const revealed = revealEmpty(payload.x, payload.y, state);
@@ -32,7 +27,7 @@ export default (state = initialState, { type, payload }) => {
 
       //check for win
       if (numOfMines === numUnRevealed) {
-        return [...revealAll(state.board)];
+        return [...revealAll(state)];
       }
 
       return [...revealed];
