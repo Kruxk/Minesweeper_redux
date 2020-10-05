@@ -26,9 +26,9 @@ export const leftClick = (x, y) => (dispatch, getState) => {
     dispatch({ type: REVEAL_ALL, payload: { x, y, hit: true } });
     dispatch(gameLost());
   }
-
-  if (numOfMines === numUnRevealed) {
-    dispatch({ type: REVEAL_ALL });
+  console.log(numOfMines, numUnRevealed);
+  if (numOfMines === numUnRevealed - 1) {
+    dispatch({ type: REVEAL_ALL, payload: { hit: false } });
     dispatch(gameWon());
   }
 
