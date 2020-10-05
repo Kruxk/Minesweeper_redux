@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { leftClick } from "./store/actions";
+import { leftClick } from "../actions";
 
 export default function Cell({ isRevealed, isMine, neighbours, x, y }) {
   const dispatch = useDispatch();

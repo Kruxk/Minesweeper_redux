@@ -1,7 +1,35 @@
+* {
+  margin: 0;
+}
+
 .App {
   text-align: center;
   background-color: #282c34;
   min-height: 100vh;
+}
+
+.menu {
+  background-color: rgb(8, 128, 128);
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  padding: 1em;
+}
+
+.menu > p {
+  margin-bottom: 0.2em;
+}
+
+.menu > label {
+  margin-right: 0.5em;
+}
+
+.menu > button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.4em;
 }
 
 .board {

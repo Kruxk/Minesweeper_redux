@@ -34,6 +34,7 @@ export default (state = initialState, { type, payload }) => {
         return total + rowUnRevealed;
       }, 0);
       console.log("mines:", numOfMines, "revealed:", numUnRevealed);
+
       //check for win
       if (numOfMines === numUnRevealed) {
         return { gameState: "You Won", board: [...revealAll(board)] };
