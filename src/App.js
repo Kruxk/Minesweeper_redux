@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import { useSelector } from "react-redux";
-import { getBoard } from "./store/selectors";
+import { getBoard } from "./store/board/selectors";
 import Cell from "./components/Cell";
 import Menu from "./components/Menu";
 
