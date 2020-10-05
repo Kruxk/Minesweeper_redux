@@ -22,14 +22,16 @@ const plantMines = (board, mines) => {
   const randomX = randomNum(board.length);
   const randomY = randomNum(board.length);
 
-  if (mines === 0) {
-    return board;
-  } else if (board[randomX][randomY].isMine) {
-    return plantMines(board, mines);
-  } else {
+  const plant = (board) => {
     board[randomX][randomY].isMine = true;
-    return plantMines(board, mines - 1);
-  }
+    return board;
+  };
+
+  return mines === 0
+    ? board
+    : board[randomX][randomY].isMine
+    ? plantMines(board, mines)
+    : plantMines(plant(board), mines - 1);
 };
 
 const getArea = (x, y, board) => {

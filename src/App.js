@@ -17,7 +17,7 @@ function App() {
         {selectBoard.map((row, x) => (
           <div key={x} className="row">
             {row.map((cell, y) => (
-              <Cell key={`${x}${y}`} cell />
+              <Cell key={`${x}${y}`} {...cell} />
             ))}
           </div>
         ))}

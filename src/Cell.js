@@ -1,11 +1,13 @@
 import React from "react";
 
 export default function Cell({ isRevealed, isMine, neighbours }) {
-  return !isRevealed ? (
-    <div class="cell"></div>
+  console.log(isRevealed, isMine, neighbours);
+
+  return isRevealed ? (
+    <div className="cell">{""}</div>
   ) : !isMine ? (
-    <div class="cell">{neighbours > 0 ? neighbours : ""}</div>
+    <div className="cell">{neighbours > 0 ? neighbours : null}</div>
   ) : (
-    <div class="cell">💣</div>
+    <div className="cell">💣</div>
   );
 }
