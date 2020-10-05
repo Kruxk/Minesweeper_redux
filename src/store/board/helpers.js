@@ -115,6 +115,7 @@ export const revealAll = (board) => {
     row.map((cell) => {
       cell.isRevealed = true;
       cell.isFlagged = false;
+      return cell;
     });
     return [...board, row];
   }, []);

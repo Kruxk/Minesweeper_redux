@@ -21,7 +21,9 @@ export default function Cell({
         dispatch(rightClick(x, y));
       }}
     >
-      🚩
+      <span role="img" aria-label="flag">
+        🚩
+      </span>
     </div>
   ) : !isRevealed ? (
     <div
@@ -39,8 +41,16 @@ export default function Cell({
   ) : !isMine ? (
     <div className="cell">{neighbours > 0 ? neighbours : null}</div>
   ) : isHit ? (
-    <div className="cell hit">💣</div>
+    <div className="cell hit">
+      <span role="img" aria-label="bomb">
+        💣
+      </span>
+    </div>
   ) : (
-    <div className="cell">💣</div>
+    <div className="cell">
+      <span role="img" aria-label="bomb">
+        💣
+      </span>
+    </div>
   );
 }
