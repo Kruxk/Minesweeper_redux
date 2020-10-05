@@ -1,5 +1,5 @@
-export const getBoard = (state) => state.board;
-export const getGameState = (state) => state.gameState;
+export const getBoard = (state) => state;
+export const getGameState = (state) => state[state.length - 1];
 export const getMines = (state) =>
   state.board.reduce((total, row) => {
     const minesInRow = row.filter((cell) => cell.isMine).length;

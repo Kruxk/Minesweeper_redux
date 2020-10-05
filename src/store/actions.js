@@ -112,7 +112,8 @@ export const revealEmpty = (x, y, board) => {
 
 //NON HELPER FUNCTIONS
 export const NEW_GAME = "NEW_GAME";
-export const LEFTCLICK = "LEFT_CLICK";
+export const LEFT_CLICK = "LEFT_CLICK";
+export const RIGHT_CLICK = "RIGHT_CLICK";
 
 export const newGame = (dimension) => {
   const numOfMines = Math.floor(dimension * dimension * 0.25);
@@ -121,6 +122,6 @@ export const newGame = (dimension) => {
   return { type: NEW_GAME, payload: board };
 };
 
-export const leftClick = (x, y) => {
-  return { type: LEFTCLICK, payload: { x, y } };
-};
+export const leftClick = (x, y) => ({ type: LEFT_CLICK, payload: { x, y } });
+
+export const rightClick = (x, y) => ({ type: RIGHT_CLICK, payload: { x, y } });

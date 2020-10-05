@@ -1,10 +1,9 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { getBoard } from "./store/selectors";
-import Cell from "./store/components/Cell";
-import Menu from "./store/components/Menu";
+import Cell from "./components/Cell";
+import Menu from "./components/Menu";
 
 function App() {
   const selectBoard = useSelector(getBoard);

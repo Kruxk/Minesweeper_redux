@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { newGame } from "../actions";
-import { getGameState, getMines } from "../selectors";
+import { newGame } from "../store/actions";
+import { getGameState, getMines } from "../store/selectors";
 
 export default function Menu() {
-  const gameState = useSelector(getGameState);
-  const numOfMines = useSelector(getMines);
+  //   const gameState = useSelector(getGameState);
+  //   const numOfMines = useSelector(getMines);
   const [dimension, setDimension] = useState(5);
   const dispatch = useDispatch();
-  console.log(numOfMines);
+
   return (
     <div className="menu">
-      <p>{gameState}</p>
-      <p>Mines: {numOfMines}</p>
+      {/* <p>{gameState}</p>
+      <p>Mines: {numOfMines}</p> */}
       <label htmlFor="difficulty">Choose a difficulty:</label>
       <select
         name="difficulty"
