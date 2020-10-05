@@ -16,6 +16,7 @@ export default (state = initialState, { type, payload }) => {
       }, 0);
       //check for game over
       if (state[payload.x][payload.y].isMine) {
+        state[payload.x][payload.y].isHit = true;
         return [...revealAll(state)];
       }
 

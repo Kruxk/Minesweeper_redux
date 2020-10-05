@@ -9,9 +9,10 @@ export default function Cell({
   x,
   y,
   isFlagged,
+  isHit,
 }) {
   const dispatch = useDispatch();
-  console.log(x, y);
+
   return isFlagged ? (
     <div
       className="cell cellHidden"
@@ -37,6 +38,8 @@ export default function Cell({
     </div>
   ) : !isMine ? (
     <div className="cell">{neighbours > 0 ? neighbours : null}</div>
+  ) : isHit ? (
+    <div className="cell hit">💣</div>
   ) : (
     <div className="cell">💣</div>
   );

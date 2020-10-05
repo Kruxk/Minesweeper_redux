@@ -13,6 +13,7 @@ const initBoard = (dimension) => {
         isRevealed: false,
         neighbours: 0,
         isFlagged: false,
+        isHit: false,
       };
     }
   }
@@ -120,6 +121,6 @@ export const revealAll = (board) => {
 };
 
 export const initGame = (dimension) => {
-  const numOfMines = Math.floor(dimension * dimension * 0.25);
+  const numOfMines = Math.floor(dimension * dimension * 0.2);
   return getNeighbours(plantMines(initBoard(dimension), numOfMines));
 };
