@@ -8,6 +8,8 @@ const initBoard = (dimension) => {
     board.push([]);
     for (let y = 0; y < dimension; y++) {
       board[x][y] = {
+        x: x,
+        y: y,
         isMine: false,
         isRevealed: false,
         neighbours: 0,
@@ -94,12 +96,31 @@ const getNeighbours = (board) => {
   return updatedBoard;
 };
 
+export const revealEmpty = (x, y, board) => {
+  const area = getArea(x, y, board);
+  area.map((cell) => {
+    if (!cell.isFlagged && !cell.isRevealed && !cell.isMine) {
+      board[cell.x][cell.y].isRevealed = true;
+      if (cell.neighbours === 0) {
+        revealEmpty(cell.x, cell.y, board);
+      }
+    }
+    return cell;
+  });
+  return board;
+};
+
 //NON HELPER FUNCTIONS
 export const NEW_GAME = "NEW_GAME";
+export const LEFTCLICK = "LEFT_CLICK";
 
 export const newGame = (dimension) => {
   const numOfMines = Math.floor(dimension * dimension * 0.25);
   const board = getNeighbours(plantMines(initBoard(dimension), numOfMines));
 
   return { type: NEW_GAME, payload: board };
+};
+
+export const leftClick = (x, y) => {
+  return { type: LEFTCLICK, payload: { x, y } };
 };

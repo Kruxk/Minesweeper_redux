@@ -2,7 +2,7 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import { useDispatch, useSelector } from "react-redux";
-import { newGame } from "./store/actions";
+import { newGame, revealEmpty } from "./store/actions";
 import { getBoard } from "./store/selectors";
 import Cell from "./Cell";
 
