@@ -1,12 +1,10 @@
 const randomNum = (dimension) =>
   Math.floor(Math.random() * 1000000) % dimension;
 
-const initBoard = (dimension) => {
-  const board = [];
-  for (let x = 0; x < dimension; x++) {
-    board.push([]);
-    for (let y = 0; y < dimension; y++) {
-      board[x][y] = {
+const initBoard = (dimension) =>
+  [...new Array(dimension).keys()].map((_, x) =>
+    [...new Array(dimension).keys()].map((_, y) => {
+      return {
         x: x,
         y: y,
         isMine: false,
@@ -15,10 +13,8 @@ const initBoard = (dimension) => {
         isFlagged: false,
         isHit: false,
       };
-    }
-  }
-  return board;
-};
+    })
+  );
 
 const plantMines = (board, mines) => {
   const randomX = randomNum(board.length);
